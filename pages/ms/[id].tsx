@@ -28,7 +28,13 @@ const MS = () => {
       <Head>
         <title>TrainLCD Canary</title>
       </Head>
-      <a href={deepUrl}>Press this link to open the TrainLCD app.</a>
+      <a href={deepUrl}>
+        <b>もう一度起動</b>
+      </a>
+      <p>
+        リンクから起動できないときは、スクリーンシェアID <b>{id}</b>{" "}
+        をアプリに入力してください。
+      </p>
     </div>
   );
 };
