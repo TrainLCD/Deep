@@ -1,16 +1,27 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 
 const MS = () => {
   const router = useRouter();
   const { id } = router.query;
 
-  const deepUrl = `trainlcd://ms/${id}`;
+  const deepUrl = useMemo(() => {
+    if (!id) {
+      return null;
+    }
+    return `trainlcd://ms/${id}`;
+  }, [id]);
 
   useEffect(() => {
-    window.location.replace(deepUrl);
+    if (deepUrl) {
+      window.location.replace(deepUrl);
+    }
   }, [deepUrl]);
+
+  if (!deepUrl) {
+    return null;
+  }
 
   return (
     <div>
