@@ -10,7 +10,7 @@ const MS = () => {
     if (!id) {
       return null;
     }
-    return `trainlcd://ms/${id}`;
+    return `trainlcd-canary://ms/${id}`;
   }, [id]);
 
   useEffect(() => {
